@@ -14,6 +14,7 @@ import {
   getDocs,
 } from 'firebase/firestore';
 
+// Firebase config (unchanged)
 const firebaseConfig = {
   apiKey: "AIzaSyByYExKceEIriZiJjUHsTCYMIB93vNnwRE",
   authDomain: "solarride-login.firebaseapp.com",
@@ -52,17 +53,53 @@ export default function Login() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-100 to-indigo-200">
-      <div className="bg-white p-8 rounded-xl shadow-md max-w-sm w-full text-center">
-        <h2 className="text-2xl font-bold mb-4 text-gray-800">Solaride Login</h2>
-        <p className="text-gray-500 mb-6">Sign in with Google to continue</p>
+    <div className="min-h-screen flex items-center justify-center bg-cover bg-center px-4" 
+    style={{backgroundImage: "url('login-bg.jpg')"}}>
+      <div className="absolute inset-0 bg-black/40"></div>
+      <div className="relative w-full max-w-md bg-transparent rounded-xl border border-white/20 shadow-2xl p-6 sm:p-8 lg:p-10 space-y-6 backdrop-blur-md text-white">
+        
+        {/* Logo */}
+       <div className="flex justify-center items-center h-32 w-48 max-w-xs mx-auto">
+        <img
+          src="Solar-Ride-logo.png"
+          alt="Solaride Logo"
+          className="h-24 max-w-full object-contain"
+        />
+        </div>
+
+
+        {/* Heading */}
+        <div className="text-center">
+          <h2 className="text-3xl font-semibold text-shadow-orange-800">TO ENJOY THE RIDE</h2>
+          <p className="mt-2 text-sm text-gray-200">
+            Continue with your institutional Google account
+          </p>
+        </div>
+
+        {/* Google Button */}
         <button
           onClick={handleGoogleLogin}
-          className="w-full flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition"
+          className="w-full flex items-center justify-center gap-3 bg-white/90 border border-gray-300 rounded-lg px-4 py-2 hover:bg-white/70 transition duration-200"
         >
-          Sign in with Google
+          <img
+            src="https://www.svgrepo.com/show/475656/google-color.svg"
+            alt="Google logo"
+            className="w-5 h-5 "
+          />
+          <span className="text-gray-800 font-medium bg-white/20 rounded ">Sign in with Google</span>
         </button>
+
+        {/* Divider */}
+        
+
+        {/* Footer note */}
+        <p className="text-xs text-gray-300 text-center">
+          By signing in, you agree to our{" "}
+          <a href="#" className="text-blue-300 hover:underline">Terms</a> and{" "}
+          <a href="#" className="text-blue-300 hover:underline">Privacy Policy</a>.
+        </p>
       </div>
+      
     </div>
   );
 }
